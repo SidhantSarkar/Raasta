@@ -159,23 +159,7 @@
   animation-play-state: running;
 }
 
-.movement{
-  /*border: 1px solid rgb(175, 216, 248);*/
-  /* background-image:url('location.svg') !important; */
-  background-color: rgb(11, 25, 37) !important;
-  opacity: 1;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  animation-name: specialNodes;
-  animation-duration: 2.0s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-play-state: running;
-}
+
 
 .visitedStartNodeBlue {
   /*border: 1px solid rgb(175, 216, 248);*/
@@ -848,6 +832,24 @@
   background-size: contain
 }
 
+.movement{
+  /*border: 1px solid rgb(175, 216, 248);*/
+  /* background-image:url('location.svg') !important; */
+  background-color: rgb(11, 25, 37) !important;
+  opacity: 1 !important;
+
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation-name: specialNodes;
+  animation-duration: 2.0s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running; */
+}
 
 @font-face {
   font-family: 'Lato';

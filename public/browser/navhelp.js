@@ -335,36 +335,60 @@ const getDistance = require("./getDistance");
 
 function Movement(){
   this.prev = '';
+  this.prevClass = '';
   this.curr = '';
 }
 
 Movement.prototype.update = function(element_id) {
   if(!this.curr){
-    console.log("Here");
     this.curr = element_id;
     document.onkeydown = ((e) => {
-      this.prev = this.curr;
-      let temp = this.curr.split('-');
-      console.log(temp);
+      // this.prev = this.curr;
+      var temp = this.curr.split('-');
       e = e || window.event;
+
+      var x = parseInt(temp[1]);
+      var y = parseInt(temp[0]);
+
+      console.log(x);
+      console.log(y);
   
       if (e.keyCode == '38') {
           // up arrow
-          console.log("UP");
+          y-=1;
       }
       else if (e.keyCode == '40') {
           // down arrow
-          console.log("DOWN");
+          y+=1;
       }
       else if (e.keyCode == '37') {
         // left arrow
-        console.log("LEFT");
+        x-=1;
       }
       else if (e.keyCode == '39') {
         // right arrow
-        console.log("RIGHT");
+        x+=1;
       }
+
+      
+      temp[0] = y.toString();
+      temp[1] = x.toString();
+      var new_temp = temp.join('-');
+      this.update(new_temp);
     });
+  }
+  else{
+    if(!this.prev){
+      document.getElementById(newBoard.start).className = "startTransparent";
+      // document.getElementById(newBoard.start).classList.remove("movement");
+    }
+    else{
+      document.getElementById(this.curr).className = this.prevClass;
+    }
+    this.prev = this.curr;
+    this.curr = element_id;
+    this.prevClass = document.getElementById(this.curr).className;
+    document.getElementById(this.curr).className = "movement";
   }
 }
 
